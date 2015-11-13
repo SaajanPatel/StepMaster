@@ -5,6 +5,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 
+import com.fam.step.graphic.stage.GameStageImage;
+import com.fam.step.graphic.stage.IntroStage;
+
 public class GameCanvas extends Canvas {
 	
 	private int bufferWidth;
@@ -67,8 +70,17 @@ public class GameCanvas extends Canvas {
 	}
 	
 	public void paintBuffer(Graphics g) {
-		g.setColor(Color.BLACK);
-		g.fillRect(0, 0, this.getWidth(), this.getHeight());
+
+	}
+	
+	GameState state = GameState.INTRO;
+	
+	enum GameState {
+		INTRO(IntroStage.class);
+		
+		GameState(Class<GameStageImage> type) {
+			
+		}
 	}
 
 }
